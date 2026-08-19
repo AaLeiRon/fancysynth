@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SynthLab — a studio in your browser</title>
+<meta name="description" content="Playable polysynth, drum sequencer, track composer and guitar tab writer — all in the browser, no plugins." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23191713'/><path d='M15 55 q10 -30 20 0 t20 0 t20 0 t20 0' stroke='%23FFB100' stroke-width='7' fill='none' stroke-linecap='round'/></svg>" />
+</head>
+<body>
+
+<div class="device">
+
+  <!-- ======== transport / header ======== -->
+  <header id="transport" class="transport">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true"></div>
+      <div class="brand-text">
+        <h1>SynthLab</h1>
+        <p>desktop studio · mk I</p>
+      </div>
+    </div>
+
+    <div class="lcd" role="img" aria-label="Oscilloscope display">
+      <canvas id="scope" width="420" height="86"></canvas>
+      <div id="lcd-status" class="lcd-status">112 BPM · READY</div>
+    </div>
+
+    <div id="transport-knobs" class="transport-knobs"></div>
+
+    <div class="transport-buttons">
+      <button id="btn-play" type="button" class="btn-transport"><span class="tri"></span> PLAY</button>
+      <button id="btn-rec" type="button" class="btn-transport btn-rec">● REC</button>
+    </div>
+  </header>
+
+  <!-- ======== module rail ======== -->
+  <nav class="rail" role="tablist" aria-label="Modules">
+    <button class="rail-btn rail-synth is-on" role="tab" aria-selected="true" data-panel="synth" type="button">
+      <span class="rail-led"></span>SYNTH
+    </button>
+    <button class="rail-btn rail-drums" role="tab" aria-selected="false" data-panel="drums" type="button">
+      <span class="rail-led"></span>DRUMS
+    </button>
+    <button class="rail-btn rail-comp" role="tab" aria-selected="false" data-panel="composer" type="button">
+      <span class="rail-led"></span>COMPOSER
+    </button>
+    <button class="rail-btn rail-guitar" role="tab" aria-selected="false" data-panel="guitar" type="button">
+      <span class="rail-led"></span>GUITAR
+    </button>
+  </nav>
+
+  <!-- ======== panels ======== -->
+  <main>
+    <section id="panel-synth" class="panel panel-synth is-active" role="tabpanel" aria-label="Synth"></section>
+    <section id="panel-drums" class="panel panel-drums" role="tabpanel" aria-label="Drum sequencer"></section>
+    <section id="panel-composer" class="panel panel-comp" role="tabpanel" aria-label="Composer"></section>
+    <section id="panel-guitar" class="panel panel-guitar" role="tabpanel" aria-label="Guitar"></section>
+  </main>
+
+  <footer class="device-foot">
+    <span>Drag knobs vertically · hold Shift for fine control · Space bar starts and stops the transport</span>
+    <span class="foot-serial">SL-01 · Web Audio · no samples, everything is synthesized live</span>
+  </footer>
+</div>
+
+<script src="js/theory.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/widgets.js"></script>
+<script src="js/synth-ui.js"></script>
+<script src="js/drums-ui.js"></script>
+<script src="js/composer-ui.js"></script>
+<script src="js/guitar-ui.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

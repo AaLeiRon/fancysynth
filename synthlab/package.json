@@ -1,0 +1,13 @@
+{
+  "name": "synthlab",
+  "version": "1.0.0",
+  "description": "A desktop studio in your browser: polysynth, drum sequencer, track composer and guitar tab writer.",
+  "scripts": {
+    "test": "node tests/theory.test.js && node tests/dom.smoke.test.js",
+    "start": "npx serve ."
+  },
+  "devDependencies": {
+    "jsdom": "^24.0.0"
+  },
+  "license": "MIT"
+}
